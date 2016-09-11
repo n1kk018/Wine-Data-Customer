@@ -12,16 +12,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>fr.afcepf.atod</groupId>
-			<artifactId>Wine-Entity</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.afcepf.atod</groupId>
-			<artifactId>Wine-Exception</artifactId>
-			<version>1.0</version>
-		</dependency>
-		<dependency>
-			<groupId>fr.afcepf.atod</groupId>
 			<artifactId>Wine-Data-Generic</artifactId>
 			<version>1.0</version>
 		</dependency>
