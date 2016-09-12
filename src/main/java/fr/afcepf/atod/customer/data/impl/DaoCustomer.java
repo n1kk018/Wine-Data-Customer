@@ -25,21 +25,30 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
      ****************************************************/
 
     private static final String REQCONNEXION = "SELECT u FROM User u "
-                + "WHERE u.mail     = :paramMail "
-                + "AND   u.password = :paramPassword";
+                + "WHERE  u.mail     = :paramMail"
+                + " AND   u.password = :paramPassword";
 
     /****************************************************.
      *                 Fin Requetes HQL
      ****************************************************/
+    /**
+     * 
+     * @param mail
+     * @param password
+     * @return
+     * @throws WineException 
+     */
     @Override
     public User connect(String mail, String password) throws WineException {
         User user = null;
         if (!mail.equalsIgnoreCase("") && 
                 !password.equalsIgnoreCase("")) {
-            user = (User) getSf().getCurrentSession().createQuery(REQCONNEXION)
-                    .setParameter("paramMail", mail)
-                    .setParameter("paramPassword", password)
-                    .uniqueResult();
+           user = (User) (getSf().getCurrentSession()
+                   .createQuery(REQCONNEXION)
+                   .setParameter("paramMail", mail)
+                   .setParameter("paramPassword", password)
+                   .uniqueResult());
+ 
             if (!user.getLastname().equalsIgnoreCase("")){
                 return user;
             } else {
