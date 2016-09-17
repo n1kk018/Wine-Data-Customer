@@ -2,8 +2,8 @@ package fr.afcepf.atod.customer.data.api;
 
 import fr.afcepf.atod.vin.data.exception.WineException;
 import fr.afcepf.atod.wine.data.api.IDaoGeneric;
+import fr.afcepf.atod.wine.entity.Customer;
 import fr.afcepf.atod.wine.entity.User;
-import java.io.Serializable;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,4 +24,6 @@ public interface IDaoCustomer extends IDaoGeneric<User, Integer>{
      * @throws WineException 
      */
     User connect(String mail, String password) throws WineException;
+    
+    Customer addCustomer(Customer custom);
 }
