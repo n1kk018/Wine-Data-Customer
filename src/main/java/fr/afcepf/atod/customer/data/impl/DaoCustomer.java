@@ -9,6 +9,7 @@ import fr.afcepf.atod.customer.data.api.IDaoCustomer;
 import fr.afcepf.atod.vin.data.exception.WineErrorCode;
 import fr.afcepf.atod.vin.data.exception.WineException;
 import fr.afcepf.atod.wine.data.impl.DaoGeneric;
+import fr.afcepf.atod.wine.entity.Customer;
 import fr.afcepf.atod.wine.entity.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -60,5 +61,12 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
                     "mail  or password invalid");
         }        
     }
+
+	@Override
+	public Customer addCustomer(Customer custom) {
+		Customer user = null;
+		user = (Customer) getSf().getCurrentSession().save(custom);
+		return user;
+	}
     
 }
