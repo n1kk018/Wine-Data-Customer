@@ -9,7 +9,12 @@
 		<log4j.version>1.2.16</log4j.version>
 	</properties>
 
-	<dependencies>		
+	<dependencies>	
+	<dependency>
+            <groupId>fr.afcepf.atod</groupId>
+            <artifactId>Wine-Business-Order</artifactId>
+            <version>1.0</version>
+        </dependency>	
 		<dependency>
 			<groupId>fr.afcepf.atod</groupId>
 			<artifactId>Wine-Data-Generic</artifactId>
