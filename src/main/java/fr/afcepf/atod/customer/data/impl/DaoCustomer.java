@@ -70,3 +70,4 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
 	}
     
 }
+
