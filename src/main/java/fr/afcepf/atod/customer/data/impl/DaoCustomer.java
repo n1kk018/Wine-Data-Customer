@@ -26,8 +26,11 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
      ****************************************************/
 
     private static final String REQCONNEXION = "SELECT u FROM User u "
-                + "WHERE  u.mail     = :paramMail"
-                + " AND   u.password = :paramPassword";
+                + "LEFT JOIN FETCH u.adresses "
+                + "WHERE  u.mail     = :paramMail "
+                + "AND   u.password = :paramPassword "
+                + "AND u.activated = 1 "
+                + "AND u.user_type = 'CUSTOMER'";
 
     /****************************************************.
      *                 Fin Requetes HQL
@@ -44,6 +47,9 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
         User user = null;
         if (!mail.equalsIgnoreCase("") && 
                 !password.equalsIgnoreCase("")) {
+           System.out.println("=============================================");
+           System.out.println(mail);
+           System.out.println(password);
            user = (User) (getSf().getCurrentSession()
                    .createQuery(REQCONNEXION)
                    .setParameter("paramMail", mail)
