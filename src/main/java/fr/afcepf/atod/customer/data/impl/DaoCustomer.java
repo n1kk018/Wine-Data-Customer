@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author ronan
+ * @author nikko
  */
 @Service
 @Transactional
@@ -47,9 +47,6 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
         User user = null;
         if (!mail.equalsIgnoreCase("") && 
                 !password.equalsIgnoreCase("")) {
-           System.out.println("=============================================");
-           System.out.println(mail);
-           System.out.println(password);
            user = (User) (getSf().getCurrentSession()
                    .createQuery(REQCONNEXION)
                    .setParameter("paramMail", mail)
