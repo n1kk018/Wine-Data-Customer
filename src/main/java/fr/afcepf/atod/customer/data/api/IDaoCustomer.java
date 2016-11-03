@@ -26,4 +26,6 @@ public interface IDaoCustomer extends IDaoGeneric<User, Integer>{
     User connect(String mail, String password) throws WineException;
     
     Customer addCustomer(Customer custom);
+    
+    Customer findUserbyMail(String mail) throws WineException;
 }
