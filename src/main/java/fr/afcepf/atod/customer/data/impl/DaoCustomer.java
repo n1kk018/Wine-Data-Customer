@@ -71,6 +71,16 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
 		user = (Customer) getSf().getCurrentSession().save(custom);
 		return user;
 	}
+
+    @Override
+    public Customer findUserbyMail(String mail) throws WineException {
+        Customer user = null;
+        user = (Customer) getSf().getCurrentSession()
+                .createQuery(REQCUSTMAIL)
+                .setParameter("paramMail", mail)
+                .uniqueResult();
+        return user;
+    }
     
 }
 
