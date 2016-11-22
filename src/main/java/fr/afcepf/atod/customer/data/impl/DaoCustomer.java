@@ -43,11 +43,11 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
      * @throws WineException 
      */
     @Override
-    public User connect(String mail, String password) throws WineException {
-        User user = null;
+    public Customer connect(String mail, String password) throws WineException {
+        Customer user = null;
         if (!mail.equalsIgnoreCase("") && 
                 !password.equalsIgnoreCase("")) {
-           user = (User) (getSf().getCurrentSession()
+           user = (Customer) (getSf().getCurrentSession()
                    .createQuery(REQCONNEXION)
                    .setParameter("paramMail", mail)
                    .setParameter("paramPassword", password)
