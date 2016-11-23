@@ -31,6 +31,12 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
                 + "AND   u.password = :paramPassword "
                 + "AND u.activated = 1 "
                 + "AND u.user_type = 'CUSTOMER'";
+    
+    private static final String REQCUSTMAIL = "SELECT u FROM User u "
+                + "LEFT JOIN FETCH u.adresses "
+                + "WHERE  u.mail     = :paramMail "
+                + "AND u.activated = 1 "
+                + "AND u.user_type = 'CUSTOMER'";
 
     /****************************************************.
      *                 Fin Requetes HQL
@@ -72,7 +78,7 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
 		return user;
 	}
 
-    /*@Override
+    @Override
     public Customer findUserbyMail(String mail) throws WineException {
         Customer user = null;
         user = (Customer) getSf().getCurrentSession()
@@ -80,7 +86,7 @@ public class DaoCustomer extends DaoGeneric<User, Integer> implements IDaoCustom
                 .setParameter("paramMail", mail)
                 .uniqueResult();
         return user;
-    }*/
+    }
     
 }
 
